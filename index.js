@@ -1,5 +1,4 @@
 const core = require("@actions/core");
-const github = require("@actions/github");
 const { Octokit } = require("@octokit/rest");
 
 async function getCommitsFromMainBranch(owner, repo) {
@@ -12,9 +11,7 @@ async function getCommitsFromMainBranch(owner, repo) {
       sha: "main", // Change this to the default branch name if different
     });
 
-    console.log("COMMITS INFO :: ", response.data);
-
-    return response.data;
+    return response.data.map(info => info.commit);
   } catch (error) {
     throw new Error(`Failed to fetch commits: ${error.message}`);
   }
@@ -31,6 +28,8 @@ async function run() {
       const commits = await getCommitsFromMainBranch(owner, repo.trim());
       allCommits.push({ repository: repo, commits });
     }
+
+    console.log("INFO :: ", allCommits);
 
     core.setOutput("commit_data", JSON.stringify(allCommits));
   } catch (error) {

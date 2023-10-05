@@ -17,7 +17,3 @@ jobs:
         with:
           owner: mohini123
           repositories: friendly-octo,special-dollop
-
-      - name: Print Data
-        run: |
-          echo "Data: ${{ steps.get-commits.outputs.commit_data }}"
