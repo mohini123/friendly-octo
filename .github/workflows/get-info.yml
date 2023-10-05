@@ -20,5 +20,4 @@ jobs:
 
       - name: Print Data
         run: |
-          commit_data="${{ steps.get-commits.outputs.commit_data }}"
-          echo "Data: $commit_data"
+          echo "Data: ${{ steps.get-commits.outputs.commit_data }}"
