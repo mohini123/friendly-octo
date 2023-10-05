@@ -13,7 +13,7 @@ jobs:
 
       - name: Get Commits
         id: get-commits
-        uses: mohini123/friendly-octo/action.yml
+        uses: ./
         with:
           owner: mohini123
           repositories: special-dollop
