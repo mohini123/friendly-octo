@@ -1,0 +1,24 @@
+name: Fetch Merged PRs
+on: workflow_dispatch
+
+jobs:
+  get-merged-prs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Get Merged PRs with Labels
+        id: get-merged-prs
+        uses: ./pr-merge-action.yml
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labels: label1,label2,label3  # Replace with your desired labels
+
+      - name: Print Merged PRs
+        run: |
+          merged_prs="${{ steps.get-merged-prs.outputs.merged-prs }}"
+          echo "Merged PRs: $merged_prs"

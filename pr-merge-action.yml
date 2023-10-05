@@ -1,0 +1,9 @@
+name: "Fetch Merged PRs"
+description: "Info about PR merged in commits from repositories"
+outputs:
+  merged-prs:
+    description: "The list of merged PRs from the repository"
+runs:
+  using: "node20"
+  main: "pr-merge-action.js"
+
