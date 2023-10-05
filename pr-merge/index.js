@@ -3,6 +3,7 @@ const { Octokit } = require('@octokit/rest');
 
 async function run() {
   try {
+    const labels = core.getInput('labels').split(',');
     const octokit = new Octokit();
 
     // Fetch the list of merged PRs to the main branch

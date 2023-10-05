@@ -1,5 +1,8 @@
 name: "Fetch Merged PRs"
 description: "Info about PR merged in commits from repositories"
+inputs:
+  labels:
+    description: "The list of labels"
 outputs:
   merged-prs:
     description: "The list of merged PRs from the repository"
