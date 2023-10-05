@@ -13,6 +13,6 @@ jobs:
 
       - name: Get Merged PRs with Labels
         id: get-merged-prs
-        uses: ./
+        uses: ./pr-merge/
         with:
           labels: documentation,bug,question

@@ -5,5 +5,5 @@ outputs:
     description: "The list of merged PRs from the repository"
 runs:
   using: "node20"
-  main: "pr-merge-action.js"
+  main: "index.js"
 
