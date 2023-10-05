@@ -6,19 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install Dependencies
         run: npm ci
 
       - name: Get Merged PRs with Labels
         id: get-merged-prs
-        uses: ./pr-merge-action.yml
+        uses: ./
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          labels: label1,label2,label3  # Replace with your desired labels
-
-      - name: Print Merged PRs
-        run: |
-          merged_prs="${{ steps.get-merged-prs.outputs.merged-prs }}"
-          echo "Merged PRs: $merged_prs"
+          labels: documentation,bug,question
