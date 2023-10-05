@@ -1,0 +1,18 @@
+name: "Get info"
+description: "Info about commits from repositories"
+inputs:
+  owner:
+    description: "GitHub owner or organization name"
+    required: true
+  repositories:
+    description: "Comma-separated list of repository names"
+    required: true
+  labels:
+    description: "Comma-separated list of labels to filter commits"
+    required: true
+outputs:
+  commit_data:
+    description: "The list of commits from the repositories"
+runs:
+  using: "node20"
+  main: "index.js"
