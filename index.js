@@ -29,7 +29,7 @@ async function run() {
       allCommits.push({ repository: repo, commits });
     }
 
-    console.log("INFO :: ", allCommits);
+    console.log("INFO :: ", JSON.stringify(allCommits, null, 2));
 
     core.setOutput("commit_data", JSON.stringify(allCommits));
   } catch (error) {
